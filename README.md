@@ -16,7 +16,7 @@ Each task includes:
 
 ---
 
-<<<<<<< HEAD
+
 ## 🎯 Week 1: Securing Your First S3 Bucket & IAM User  
 🔐 *Root Account Monitoring with CloudTrail + SNS Alerts*
 
@@ -27,7 +27,7 @@ Each task includes:
 - Monitored root user activity via SNS alerts  
 
 👉 [View Week 1 Project](./week1)
-=======
+
 ## 🎯 Week 1 Projects
 
 ### 🔒 [Part 1 – Securing S3 and IAM Access](./week1/part1-s3-iam-hardening)
@@ -50,7 +50,7 @@ Each task includes:
 - Created an EventBridge rule to detect root login events
 
 📖 [Read Full Blog Post](https://medium.com/@Korede_Sec/️week-1-part-2-monitoring-root-activity-on-aws-using-cloudtrail-kms-sns-eventbridge-043b0a2f53ad)
->>>>>>> d5a933b (📦 Week 1 project added: S3+IAM hardening & Root monitoring with CloudTrail)
+
 
 ---
 
@@ -114,12 +114,8 @@ You’ll find lessons learned, diagrams, screenshots, commands, and real talk ab
 
 ```bash
 git clone https://github.com/KoredeSec/aws-cloud-security-journey.git
-<<<<<<< HEAD
-cd aws-cloud-security-journey/week1
-=======
-cd aws-cloud-security-journey/week1/
 
->>>>>>> d5a933b (📦 Week 1 project added: S3+IAM hardening & Root monitoring with CloudTrail)
+cd aws-cloud-security-journey/week1
 
 ```
 Inside each week’s folder:
@@ -133,10 +129,3 @@ This repository is for educational purposes only.
 No secrets or credentials are stored here. Always secure your own AWS environments.
 
 
-
-
-
-<<<<<<< HEAD
-=======
-
->>>>>>> d5a933b (📦 Week 1 project added: S3+IAM hardening & Root monitoring with CloudTrail)
