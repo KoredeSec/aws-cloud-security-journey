@@ -1,0 +1,19 @@
+{
+  "EventPattern": {
+    "source": ["aws.signin"],
+    "detail-type": ["AWS Console Sign In via Root"],
+    "detail": {
+      "userIdentity": {
+        "type": ["Root"]
+      }
+    }
+  },
+  "Name": "RootAccountActivityDetection",
+  "State": "ENABLED",
+  "Targets": [
+    {
+      "Arn": "arn:aws:sns:<region>:<your-account-id>:<your-sns-topic-name>",
+      "Id": "TargetSNS"
+    }
+  ]
+}

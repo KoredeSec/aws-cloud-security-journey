@@ -1,0 +1,60 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowSpecificIAMUser",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::<your-account-id>:user/<iam-username>"
+      },
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::<your-s3-bucket-name>",
+        "arn:aws:s3:::<your-s3-bucket-name>/*"
+      ]
+    },
+    {
+      "Sid": "AllowS3Logging",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "logging.s3.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::<your-s3-bucket-name>/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:SourceAccount": "<your-account-id>"
+        }
+      }
+    },
+    {
+      "Sid": "CloudTrailGetAcl",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudtrail.amazonaws.com"
+      },
+      "Action": "s3:GetBucketAcl",
+      "Resource": "arn:aws:s3:::<your-s3-bucket-name>",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudtrail:<region>:<your-account-id>:trail/<your-trail-name>"
+        }
+      }
+    },
+    {
+      "Sid": "CloudTrailPutLogs",
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "cloudtrail.amazonaws.com"
+      },
+      "Action": "s3:PutObject",
+      "Resource": "arn:aws:s3:::<your-s3-bucket-name>/AWSLogs/<your-account-id>/*",
+      "Condition": {
+        "StringEquals": {
+          "s3:x-amz-acl": "bucket-owner-full-control",
+          "AWS:SourceArn": "arn:aws:cloudtrail:<region>:<your-account-id>:trail/<your-trail-name>"
+        }
+      }
+    }
+  ]
+}
